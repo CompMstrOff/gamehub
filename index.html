@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
     <title>GameHub</title>
+
     <style>
+        :root {
+            --bg: #f4fbff;
+            --card: #ffffff;
+            --text: #222222;
+            --accent: #4fc3f7;
+            --accent-hover: #29b6f6;
+            --footer: #666666;
+        }
+
+        .dark-theme {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #f0f0f0;
+            --accent: #4fc3f7;
+            --accent-hover: #81d4fa;
+            --footer: #aaaaaa;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,18 +32,40 @@
         }
 
         body {
-            background: #f4fbff;
-            color: #222;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
         }
 
         header {
-            background: #4fc3f7;
+            background: var(--accent);
             color: white;
-            text-align: center;
             padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 2rem;
             font-weight: bold;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        #themeToggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        #themeToggle:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         .container {
@@ -37,15 +77,15 @@
         .games-title {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: #2196f3;
+            color: var(--accent);
         }
 
         .game-card {
-            background: white;
+            background: var(--card);
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            transition: transform 0.2s, background 0.3s;
         }
 
         .game-card:hover {
@@ -55,14 +95,14 @@
         .game-name {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #2196f3;
+            color: var(--accent);
         }
 
         .play-btn {
             display: inline-block;
             margin-top: 10px;
             padding: 10px 20px;
-            background: #4fc3f7;
+            background: var(--accent);
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -70,18 +110,43 @@
         }
 
         .play-btn:hover {
-            background: #29b6f6;
+            background: var(--accent-hover);
         }
 
         footer {
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            color: #666;
+            color: var(--footer);
         }
     </style>
 </head>
-    
+
+<body>
+
+<header>
+    <div class="header-content">
+        🎮 GameHub
+        <button id="themeToggle">🌙</button>
+    </div>
+</header>
+
+<div class="container">
+    <h2 class="games-title">Games</h2>
+
+    <div class="game-card">
+        <div class="game-name">🍎 FruitCollect</div>
+        <p>Collect fruits and have fun!</p>
+        <a class="play-btn" href="https://compmstroff.github.io/fruitcollect1221/index.html" target="_blank">
+            Play Now
+        </a>
+    </div>
+</div>
+
+<footer>
+    © 2026 GameHub
+</footer>
+
 <script>
 const toggleBtn = document.getElementById("themeToggle");
 
@@ -103,31 +168,5 @@ toggleBtn.addEventListener("click", () => {
 });
 </script>
 
-<body>
-
-<header>
-    <div class="header-content">
-        <span>🎮 GameHub</span>
-        <button id="themeToggle">🌙</button>
-    </div>
-</header>
-    
-<div class="container">
-    <h2 class="games-title">Games</h2>
-
-    <div class="game-card">
-        <div class="game-name">🍎 FruitCollect</div>
-        <p>Collect fruits and have fun!</p>
-        <a class="play-btn" href="https://compmstroff.github.io/fruitcollect1221/index.html" target="_blank">
-            Play Now
-        </a>
-    </div>
-</div>
-
-<footer>
-    © 2026 GameHub
-</footer>
-
 </body>
-</html>
-```0
+    </html>
